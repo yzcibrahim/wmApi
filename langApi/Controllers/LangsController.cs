@@ -33,7 +33,7 @@ namespace langApi
 
         // POST api/<LangsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Language lng)
         {
         }
 

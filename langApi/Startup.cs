@@ -27,7 +27,7 @@ namespace langApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LangDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TuWmDb")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "langApi", Version = "v1" });
