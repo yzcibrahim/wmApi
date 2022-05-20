@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,18 +36,29 @@ namespace langApi
         [HttpPost]
         public void Post([FromBody] Language lng)
         {
+            _ctx.Languages.Add(lng);
+            _ctx.SaveChanges();
+
         }
 
         // PUT api/<LangsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Language lng)
         {
+            lng.Id = id;
+            _ctx.Attach(lng);
+            _ctx.Entry(lng).State = EntityState.Modified;
+            _ctx.SaveChanges();
+
         }
 
         // DELETE api/<LangsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var silinecek=_ctx.Languages.FirstOrDefault(c => c.Id == id);
+            _ctx.Remove(silinecek);
+            _ctx.SaveChanges();
         }
     }
 }
