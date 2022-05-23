@@ -14,5 +14,7 @@ namespace WordApi
         }
 
         public DbSet<WordDefinition> WordDefinitions { get; set; }
+
+        public DbSet<WordMeaning> WordMeanings { get; set; }
     }
 }
