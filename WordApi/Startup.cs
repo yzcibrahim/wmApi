@@ -39,7 +39,7 @@ namespace WordApi
 
             services.AddCors();
 
-            var key = "This is my first Test Key";
+            var key = "TUAUTKEY--ASD-SECTETKEY";
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

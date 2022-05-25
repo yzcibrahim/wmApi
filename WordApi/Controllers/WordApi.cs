@@ -22,6 +22,7 @@ namespace WordApi.Controllers
         }
         // GET: api/<WordApi>
         [HttpGet]
+        [Authorize]
         public IEnumerable<WordDefinition> Get()
         {
             return _context.WordDefinitions.Include(c=>c.Meanings).ToList();
