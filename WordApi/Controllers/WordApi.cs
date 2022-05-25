@@ -37,6 +37,7 @@ namespace WordApi.Controllers
 
         // POST api/<WordApi>
         [HttpPost]
+        [Authorize]
         public void Post([FromBody] WordDefinition entity)
         {
             _context.WordDefinitions.Add(entity);
